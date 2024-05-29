@@ -1,39 +1,59 @@
 <mvc:View
-	controllerName="riskmanagementfreestyle.controller.RisksView"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:core="sap.ui.core"
-	xmlns="sap.m">
-	<Table id="idProductsTable"
-		inset="false"
-		items="{ path: '/ListOfRisks', sorter: { path: 'title' } }">
-		<headerToolbar>
-			<OverflowToolbar id="OverflowToolbarID">
-				<content>
-					<Title text="Risks" level="H2"/>
-					<ToolbarSpacer />
-				</content>
-			</OverflowToolbar>
-		</headerToolbar>
-		<infoToolbar>
-			<OverflowToolbar>
-				<Label text="List of Risks"/>
-			</OverflowToolbar>
-		</infoToolbar>
-		<columns>
-			<Column width="12em">
-				<Text text="Title" />
-			</Column>
-			<Column minScreenWidth="Tablet" demandPopin="true">
-				<Text text="Owner" />
-			</Column>
-		</columns>
-		<items>
-			<ColumnListItem vAlign="Middle">
-				<cells>
-					<ObjectIdentifier title="{title}"/>
-					<Text text="{owner}" />
-				</cells>
-			</ColumnListItem>
-		</items>
-	</Table>
+    controllerName="riskmanagementfreestyle.controller.RisksView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Page
+        title="Risks">
+        <content>
+            <VBox>
+                <Table
+                    id="idProductsTable"
+                    inset="false"
+                    items="{ path: '/ListOfRisks', sorter: { path: 'title' } }"
+                    mode="SingleSelect">
+                    <headerToolbar>
+                        <OverflowToolbar id="OverflowToolbarID">
+                            <content>
+                                <Title text="Risks" level="H2"/>
+                                <ToolbarSpacer />
+                                <!-- <Button
+                                    icon="sap-icon://add"
+                                    text="Add"
+                                    press="onAdd"/> -->
+                                <!-- <Button
+                                    icon="sap-icon://delete"
+                                    text="Delete"
+                                    press="onDelete"/> -->
+                                <Button
+                                    icon="sap-icon://navigation-up-arrow"
+                                    text="Increase current Impact to '10000'"
+                                    press="onSetHighImpact"/>
+                            </content>
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column width="12em">
+                            <Text text="Title"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Owner"/>
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="Impact"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <ObjectIdentifier title="{title}"/>
+                                <Text text="{owner}"/>
+                                <ObjectStatus text="{impact}" state="{ path: 'impact', formatter: '.formatImpact' }"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
 </mvc:View>

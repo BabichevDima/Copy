@@ -9,18 +9,15 @@ service RiskService {
     entity Mitigations as projection on rm.Mitigations;
     annotate Mitigations with @odata.draft.enabled;
 
-    @readonly entity ListOfRisks  as
+    entity ListOfRisks  as
         select from Risks {
             key ID,
                 title,
-                owner
+                owner,
+                impact
         };
 
-    // @readonly entity ListOfRisks as projection on Risks {
-    //         key ID,
-    //             title,
-    //             owner
-    //     };
+    action setHighImpact (riskID: UUID, currentImpact: Integer) returns Boolean;
 
     // BusinessPartner will be used later
     //@readonly entity BusinessPartners as projection on rm.BusinessPartners;

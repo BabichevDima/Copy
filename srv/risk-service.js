@@ -36,7 +36,14 @@ module.exports = cds.service.impl(async function() {
                 default:
                     break;
             }
-
         })
-    })
+    });
+
+    // Implement the custom action
+    this.on('setHighImpact', async (oReq) => {
+        const { riskID, currentImpact } = oReq.data;
+        const nUpdatedImpact = currentImpact + 10000
+        const result = await UPDATE(Risks).set({ impact: nUpdatedImpact }).where({ ID: riskID });
+        return result > 0;
+    });
   });
