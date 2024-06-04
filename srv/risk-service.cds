@@ -20,5 +20,5 @@ service RiskService {
     action setHighImpact (riskID: UUID, currentImpact: Integer) returns Boolean;
 
     // BusinessPartner will be used later
-    //@readonly entity BusinessPartners as projection on rm.BusinessPartners;
+    @readonly entity BusinessPartners as projection on rm.BusinessPartners;
 }
