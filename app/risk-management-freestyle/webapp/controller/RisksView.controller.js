@@ -24,7 +24,6 @@ sap.ui.define([
 
             // Method to call the custom action
             async onSetHighImpact(oEvent) {
-                debugger
                 const oSelectedItem = this.byId("idProductsTable").getSelectedItem();
                 if (!oSelectedItem) {
                     MessageToast.show("Please select a risk first.");
