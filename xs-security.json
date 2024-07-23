@@ -1,4 +1,6 @@
 {
+  "xsappname": "risk-management-fbaea859trial-dev",
+  "tenant-mode": "dedicated",
   "scopes": [
     {
       "name": "$XSAPPNAME.RiskViewer",
@@ -10,6 +12,16 @@
     }
   ],
   "attributes": [],
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "https://**.hana.ondemand.com/login/callback",
+      "https://**.applicationstudio.cloud.sap/login/callback",
+      "https://**.hana.trial-us10.hanacloud.ondemand.com",
+      "https://fbaea859trial-dev-risk-management.cfapps.us10-001.hana.ondemand.com/login/callback",
+      "https://port5000-workspaces-ws-l67r9.us10.trial.applicationstudio.cloud.sap/login/callback",
+      "*"
+    ]
+  },
   "role-templates": [
     {
       "name": "RiskViewer",
