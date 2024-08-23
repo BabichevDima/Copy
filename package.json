@@ -33,6 +33,29 @@
           "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER/"
         }
       },
+      "auth": {
+        "kind": "basic",
+        "users": {
+          "risk.viewer@tester.sap.com": {
+            "password": "initial",
+            "roles": [
+              "RiskViewer"
+            ],
+            "attr": {
+              "email": "risk.viewer@tester.sap.com"
+            }
+          },
+          "risk.manager@tester.sap.com": {
+            "password": "initial",
+            "roles": [
+              "RiskManager"
+            ],
+            "attr": {
+              "email": "risk.manager@tester.sap.com"
+            }
+          }
+        }
+      },
       "[production]": {
         "db": "hana",
         "auth": "xsuaa"
