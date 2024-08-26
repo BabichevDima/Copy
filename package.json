@@ -22,7 +22,9 @@
   "scripts": {
     "start": "cds-serve",
     "watch-risk-management": "cds watch --open risk-management/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-risk-management-freestyle": "cds watch --open risk-management-freestyle/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-risk-management-freestyle": "cds watch --open risk-management-freestyle/webapp/index.html?sap-ui-xx-viewCache=false",
+    "hybrid": "cds watch --profile hybrid",
+    "router": "cds bind --exec -- npm start --prefix app"
   },
   "cds": {
     "requires": {
@@ -38,6 +40,7 @@
         "users": {
           "risk.viewer@tester.sap.com": {
             "password": "initial",
+            "id": "riskviewer",
             "roles": [
               "RiskViewer"
             ],
@@ -47,6 +50,7 @@
           },
           "risk.manager@tester.sap.com": {
             "password": "initial",
+            "id": "riskmanager",
             "roles": [
               "RiskManager"
             ],
@@ -58,6 +62,9 @@
       },
       "[production]": {
         "db": "hana",
+        "auth": "xsuaa"
+      },
+      "[hybrid]": {
         "auth": "xsuaa"
       }
     }
